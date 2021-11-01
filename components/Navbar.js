@@ -7,7 +7,7 @@ const Navbar = () => {
       <header className="header sticky-header">
         <div className="container">
           <a href="index.html" className="site-logo" title="Shopo - eCommerce Template">
-            <Image src="assets/images/logo.png" alt="Logo" />
+            <Image src="/assets/images/logo.png" alt="Logo" height={50} width={50} />
             <span className="sr-only">Shopo - eCommerce Template</span>
           </a>
 
