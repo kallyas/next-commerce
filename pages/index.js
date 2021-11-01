@@ -458,7 +458,7 @@ export default function Home() {
                         src="/assets/images/banners/widget-banner.png"
                         alt="Banner name"
                         height={50}
-                        height={50}
+                        width={50}
                       />
                     </a>
                   </Link>
