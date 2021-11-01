@@ -148,7 +148,7 @@ const Navbar = () => {
                 aria-expanded="false"
               >
                 <span className="cart-icon">
-                  <Image src="assets/images/bag.png" alt="Cart" />
+                  <Image src="/assets/images/bag.png" alt="Cart" width={50} height={50} />
                   <span className="cart-count">4</span>
                 </span>
                 <i className="fa fa-caret-down"></i>
@@ -162,8 +162,10 @@ const Navbar = () => {
                     <Link href="#">
                       <a title="Product Name">
                         <Image
-                          src="assets/images/products/small/product2.jpg"
+                          src="/assets/images/products/small/product2.jpg"
                           alt="Product Image"
+                          width={50}
+                          height={50}
                         />
                       </a>
                     </Link>
@@ -190,8 +192,10 @@ const Navbar = () => {
                     <Link href="#">
                       <a title="Product Name">
                         <Image
-                          src="assets/images/products/small/product1.jpg"
+                          src="/assets/images/products/small/product1.jpg"
                           alt="Product Image"
+                          width={50}
+                          height={50}
                         />
                       </a>
                     </Link>

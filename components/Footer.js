@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -153,7 +155,13 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <p className="copyright">Online © 2017. All Rights Reserved</p>
-          <Image src="assets/images/cards.png" alt="Payment Methods" className="Image-cards" />
+          <Image
+            src="/assets/images/cards.png"
+            alt="Payment Methods"
+            className="Image-cards"
+            width={50}
+            height={50}
+          />
         </div>
       </div>
     </footer>
