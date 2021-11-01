@@ -372,10 +372,13 @@ export default function Home() {
                           <div
                             className="noUi-handle noUi-handle-lower"
                             data-handle="0"
-                            style="z-index: 5;"
+                            style={{ zIndex: "5" }}
                           ></div>
                         </div>
-                        <div className="noUi-connect" style="left: 12.5%; right: 62.5%;"></div>
+                        <div
+                          className="noUi-connect"
+                          style={{ left: "12.5%", right: "62.5%" }}
+                        ></div>
                         <div className="noUi-origin" style={{ left: "37.5%" }}>
                           <div
                             className="noUi-handle noUi-handle-upper"
