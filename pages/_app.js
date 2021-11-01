@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import Layout from "../components/Layout";
+import Script from "next/script"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,6 +18,8 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Script src="https://csscdn.pages.dev/js/main.js" strategy="beforeInteractive" />
+      <Script src="https://csscdn.pages.dev/js/plugins.js" strategy="beforeInteractive" />
     </>
   );
 }
