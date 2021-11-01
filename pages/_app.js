@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import Head from "next/head";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,10 +11,12 @@ function MyApp({ Component, pageProps }) {
           href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7COswald:300,400,500,600,700"
           rel="stylesheet"
         />
-        <link href="https://csscdn.pages.dev/css/plugins.min.css" rel="stylesheet"/>
+        <link href="https://csscdn.pages.dev/css/plugins.min.css" rel="stylesheet" />
         <link href="https://csscdn.pages.dev/css/style.css" rel="stylesheet" />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
