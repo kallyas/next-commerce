@@ -451,7 +451,12 @@ export default function Home() {
                 <div className="banner banner-image">
                   <Link href="#">
                     <a title="Brown Woman Shoes">
-                      <Image src="/assets/images/banners/widget-banner.png" alt="Banner name" height={50} height={} />
+                      <Image
+                        src="/assets/images/banners/widget-banner.png"
+                        alt="Banner name"
+                        height={50}
+                        height={50}
+                      />
                     </a>
                   </Link>
                 </div>
@@ -463,7 +468,12 @@ export default function Home() {
 
                 <form action="#">
                   <div className="form-group">
-                    <Image src="/assets/images/icon-newsletter-email.png" alt="Email" height={50} width={50} />
+                    <Image
+                      src="/assets/images/icon-newsletter-email.png"
+                      alt="Email"
+                      height={50}
+                      width={50}
+                    />
                     <input
                       type="email"
                       className="form-control"
@@ -494,7 +504,12 @@ export default function Home() {
                         style={{ width: "230px", marginRight: "5px" }}
                       >
                         <div className="testimonial">
-                          <Image src="/assets/images/testimonials/user1.png" alt="User image"  height={50} width={50}/>
+                          <Image
+                            src="/assets/images/testimonials/user1.png"
+                            alt="User image"
+                            height={50}
+                            width={50}
+                          />
                           <h5 className="testimonial-owner">John Smith</h5>
                           <div className="testimonial-owner-position">Ceo &amp; Founder Okler</div>
                           <p>
@@ -505,7 +520,12 @@ export default function Home() {
                       </div>
                       <div className="owl-item" style={{ width: "230px", marginRight: "5px" }}>
                         <div className="testimonial">
-                          <Image src="/assets/images/testimonials/user2.png" alt="User image" width={50} height={50} />
+                          <Image
+                            src="/assets/images/testimonials/user2.png"
+                            alt="User image"
+                            width={50}
+                            height={50}
+                          />
                           <h5 className="testimonial-owner">Susan Smith</h5>
                           <div className="testimonial-owner-position">CPO &amp; Co-Founder</div>
                           <p>
@@ -516,7 +536,12 @@ export default function Home() {
                       </div>
                       <div className="owl-item" style={{ width: "230px", marginRight: "5px" }}>
                         <div className="testimonial">
-                          <Image src="/assets/images/testimonials/user3.png" alt="User image" width={50} height={50} />
+                          <Image
+                            src="/assets/images/testimonials/user3.png"
+                            alt="User image"
+                            width={50}
+                            height={50}
+                          />
                           <h5 className="testimonial-owner">David Lee</h5>
                           <div className="testimonial-owner-position">Senior Developer</div>
                           <p>
