@@ -1,7 +1,12 @@
 import "../styles/globals.css";
+import "../styles/sections.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
 import Layout from "../components/Layout";
-import Script from "next/script"
+import { ToastContainer } from "react-toastify";
+import { Provider } from "react-redux";
+import store, { persistor } from "../store";
+import { PersistGate } from "redux-persist/integration/react";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -12,14 +17,39 @@ function MyApp({ Component, pageProps }) {
           href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7COswald:300,400,500,600,700"
           rel="stylesheet"
         />
-        <link href="https://csscdn.pages.dev/css/plugins.min.css" rel="stylesheet" />
-        <link href="https://csscdn.pages.dev/css/style.css" rel="stylesheet" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+          crossOrigin="anonymous"
+        />
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossOrigin="anonymous"
+        ></script>
+        <script
+          defer
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <Script src="https://csscdn.pages.dev/js/main.js" strategy="beforeInteractive" />
-      <Script src="https://csscdn.pages.dev/js/plugins.js" strategy="beforeInteractive" />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Layout>
+            <ToastContainer />
+            <Component {...pageProps} />
+          </Layout>
+        </PersistGate>
+      </Provider>
     </>
   );
 }
