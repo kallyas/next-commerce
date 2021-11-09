@@ -1,244 +1,91 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cartSelector } from "../features/cart/cartSlice";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { totalItems } = useSelector(cartSelector);
   return (
-    <div className="sticky-wrapper">
-      <header className="header sticky-header">
-        <div className="container">
-          <a href="index.html" className="site-logo" title="Shopo - eCommerce Template">
-            <Image src="/assets/images/logo.png" alt="Logo" height={50} width={50} />
-            <span className="sr-only">Shopo - eCommerce Template</span>
-          </a>
-
-          <div className="header-dropdowns">
-            <div className="dropdown header-dropdown">
-              <Link href="#">
-                <a
-                  className="dropdown-toggle"
-                  href="#"
-                  data-toggle="dropdown"
-                  role="button"
-                  aria-expanded="false"
-                >
-                  USD
-                  <i className="fa fa-caret-down"></i>
-                </a>
-              </Link>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link href="#">
-                    <a title="Euro">EUR</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <a title="Pound">PND</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <a title="Yen">YEN</a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="dropdown header-dropdown">
-              <Link href="#">
-                <a
-                  className="dropdown-toggle"
-                  href="#"
-                  data-toggle="dropdown"
-                  role="button"
-                  aria-expanded="false"
-                >
-                  ENG
-                  <i className="fa fa-caret-down"></i>
-                </a>
-              </Link>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link href="#">
-                    <a title="Spanish">SPA</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <a title="Turkish">TUR</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <a title="German">GER</a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="search-form-container">
-            <Link href="#">
-              <a className="search-form-toggle" title="Toggle Search">
-                <i className="fa fa-search"></i>
-              </a>
-            </Link>
-            <form action="#">
-              <div className="dropdown search-dropdown">
-                <Link href="#">
-                  <a
-                    className="dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-expanded="false"
-                  >
-                    All Category
-                    <i className="fa fa-caret-down"></i>
-                  </a>
+    <>
+      <header className="section-header">
+        <section className="header-main border-bottom">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-2 col-4">
+                <Link href="/">
+                  <a className="brand-wrap">E-Commerce</a>
                 </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link href="#">
-                      <a>Fashion</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <a>Electronics</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <a>Furniture</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <a>Equipments</a>
-                    </Link>
-                  </li>
-                </ul>
               </div>
-              <input type="search" className="form-control" placeholder="Search" required="" />
-              <button type="submit" title="Search" className="btn">
-                <i className="fa fa-search"></i>
-              </button>
-            </form>
-          </div>
-
-          <ul className="top-links">
-            <li>
-              <Link href="#">
-                <a>Sign In</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <a>Cart</a>
-              </Link>
-            </li>
-          </ul>
-
-          <div className="dropdown cart-dropdown">
-            <Link href="#">
-              <a
-                className="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-expanded="false"
-              >
-                <span className="cart-icon">
-                  <Image src="/assets/images/bag.png" alt="Cart" width={50} height={50} />
-                  <span className="cart-count">4</span>
-                </span>
-                <i className="fa fa-caret-down"></i>
-              </a>
-            </Link>
-            <div className="dropdown-menu dropdown-menu-right">
-              <p className="dropdown-cart-info">You have 2 products in your cart.</p>
-              <div className="dropdown-menu-wrapper">
-                <div className="product">
-                  <figure className="product-image-container">
-                    <Link href="#">
-                      <a title="Product Name">
-                        <Image
-                          src="/assets/images/products/small/product2.jpg"
-                          alt="Product Image"
-                          width={50}
-                          height={50}
-                        />
-                      </a>
-                    </Link>
-                  </figure>
-
-                  <div>
-                    <Link href="#">
-                      <a className="btn-delete" title="Delete product" role="button"></a>
-                    </Link>
-                    <h4 className="product-title">
-                      <Link href="#">
-                        <a>Sunglasses</a>
-                      </Link>
-                    </h4>
-                    <div className="product-price-container">
-                      <span className="product-price">$110.00</span>
+              <div className="col-lg-6 col-sm-12">
+                <form action="#" className="search">
+                  <div className="input-group w-100">
+                    <input type="text" className="form-control" placeholder="Search" />
+                    <div className="input-group-append">
+                      <button className="btn btn-primary" type="submit">
+                        <i className="fa fa-search"></i>
+                      </button>
                     </div>
-                    <div className="product-qty">x1</div>
                   </div>
-                </div>
-
-                <div className="product">
-                  <figure className="product-image-container">
-                    <Link href="#">
-                      <a title="Product Name">
-                        <Image
-                          src="/assets/images/products/small/product1.jpg"
-                          alt="Product Image"
-                          width={50}
-                          height={50}
-                        />
-                      </a>
-                    </Link>
-                  </figure>
-
-                  <div>
-                    <Link href="#">
-                      <a className="btn-delete" title="Delete product" role="button"></a>
-                    </Link>
-                    <h4 className="product-title">
-                      <Link href="#">
-                        <a>Leather Belt</a>
-                      </Link>
-                    </h4>
-                    <div className="product-price-container">
-                      <span className="product-price">$99.00</span>
+                </form>
+              </div>
+              <div className="col-lg-4 col-sm-6 col-12">
+                <div className="widgets-wrap float-md-right">
+                  <div className="widget-header  mr-3">
+                   <Link href="/cart">
+                   <a className="icon icon-sm rounded-circle border">
+                      <i className="fa fa-shopping-cart"></i>
+                    </a>
+                   </Link>
+                    <span className="badge badge-pill badge-danger notify">{totalItems}</span>
+                  </div>
+                  <div className="widget-header icontext">
+                    <a href="#" className="icon icon-sm rounded-circle border">
+                      <i className="fa fa-user"></i>
+                    </a>
+                    <div className="text">
+                      <span className="text-muted">Welcome!</span>
+                      <div>
+                        <a href="#">Sign in</a> |<a href="#"> Register</a>
+                      </div>
                     </div>
-                    <div className="product-qty">x1</div>
                   </div>
                 </div>
               </div>
-
-              <div className="cart-dropdowm-action">
-                <div className="dropdowm-cart-total">
-                  <span>TOTAL:</span> $209.00
-                </div>
-                <Link href="#">
-                  <a className="btn btn-primary">Checkout</a>
-                </Link>
-              </div>
             </div>
           </div>
-
-          <Link href="#">
-            <a className="sidemenu-btn" title="Menu Toggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </a>
-          </Link>
-        </div>
+        </section>
       </header>
-    </div>
+      <nav className="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
+        <div className="container">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#main_nav"
+            aria-controls="main_nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="main_nav">
+            <ul className="navbar-nav">
+              <li className="nav-item dropdown">
+                <Link href="/">
+                  <a className="nav-link">Home</a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/shop">
+                  <a className="nav-link">Shop</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 
