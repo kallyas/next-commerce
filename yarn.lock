@@ -2266,10 +2266,10 @@ react-redux@^7.2.6:
     prop-types "^15.7.2"
     react-is "^17.0.2"
 
-react-toastify@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-8.1.0.tgz#acaca4e8c4415c8474562dd84a14e6f390ed7f17"
-  integrity sha512-M+Q3rTmEw/53Csr7NsV/YnldJe4c7uERcY7Tma9mvLU98QT2VhIkKwjBzzxZkJRk/oBKyUAtkyMjMgO00hx6gQ==
+react-toastify@^8.1.1:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-8.2.0.tgz#ef7d56bdfdc6272ca6b228368ab564721c3a3244"
+  integrity sha512-Pg2Ju7NngAamarFvLwqrFomJ57u/Ay6i6zfLurt/qPynWkAkOthu6vxfqYpJCyNhHRhR4hu7+bySSeWWJu6PAg==
   dependencies:
     clsx "^1.1.1"
 
@@ -2659,10 +2659,10 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-stripe@^8.196.0:
-  version "8.201.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.201.0.tgz#b77336dfe55326e3445942b74adfa90585ea87ee"
-  integrity sha512-pF0F1DdE9zt0U6Cb0XN+REpdFkUmaqp6C7OEVOCeUpTAafjjJqrdV/WmZd7Y5MwT8XvDAxB5/v3CAXwxAp0XNg==
+stripe@^8.202.0:
+  version "8.205.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.205.0.tgz#735a70968f8c3d230db55590e7ba27e3b7a91f52"
+  integrity sha512-hmYnc7je6j0n9GlkUpc8USsUquLzSxmWj78g9NKFokCtSybNy7y9fYS+VB5AuZUwmIkzhTczgf+TaSmI4kbk9A==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"
