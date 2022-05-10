@@ -21,7 +21,7 @@
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
     "sharp": "^0.30.2",
-    "stripe": "^8.211.0"
+    "stripe": "^8.218.0"
   },
   "devDependencies": {
     "eslint": "7",
