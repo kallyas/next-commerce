@@ -2107,6 +2107,13 @@ redux@^4.0.0, redux@^4.1.2:
   dependencies:
     "@babel/runtime" "^7.9.2"
 
+redux@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.2.0.tgz#46f10d6e29b6666df758780437651eeb2b969f13"
+  integrity sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 regenerator-runtime@^0.13.4:
   version "0.13.9"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
@@ -2402,10 +2409,10 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-stripe@^8.211.0:
-  version "8.217.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.217.0.tgz#5e8ae744e0e8fca6e7c1d50c131ec3d77dff0999"
-  integrity sha512-CHWazNOrb1EBxTpepv5hCKMxOwF/oW3E4zRi8/LZIy5FC2y7A7NzcuE1aErYXLId3bKPe20HOmWKvjDRU2bXaA==
+stripe@^8.218.0:
+  version "8.222.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.222.0.tgz#5f159156e411b668a88b8f957df5ac3c63b119de"
+  integrity sha512-hrA79fjmN2Eb6K3kxkDzU4ODeVGGjXQsuVaAPSUro6I9MM3X+BvIsVqdphm3BXWfimAGFvUqWtPtHy25mICY1w==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.10.3"
