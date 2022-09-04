@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.3",
+    "@reduxjs/toolkit": "^1.8.4",
     "@stripe/stripe-js": "^1.34.0",
     "boostrap": "^2.0.0",
     "next-auth": "^4.10.2",
