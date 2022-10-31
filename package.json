@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
-    "@stripe/stripe-js": "^1.36.0",
+    "@stripe/stripe-js": "^1.39.0",
     "boostrap": "^2.0.0",
     "next-auth": "^4.12.3",
     "next": "12.3.1",
