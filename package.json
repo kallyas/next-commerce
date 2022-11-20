@@ -12,7 +12,7 @@
     "@stripe/stripe-js": "^1.39.0",
     "boostrap": "^2.0.0",
     "next-auth": "^4.12.3",
-    "next": "12.3.1",
+    "next": "12.3.2",
     "react": "17.0.2",
     "react-bootstrap": "^2.5.0",
     "react-dom": "17.0.2",
