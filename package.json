@@ -11,7 +11,7 @@
     "@reduxjs/toolkit": "^1.9.0",
     "@stripe/stripe-js": "^1.42.1",
     "boostrap": "^2.0.0",
-    "next-auth": "^4.12.3",
+    "next-auth": "^4.15.1",
     "next": "12.3.2",
     "react": "17.0.2",
     "react-bootstrap": "^2.6.0",
