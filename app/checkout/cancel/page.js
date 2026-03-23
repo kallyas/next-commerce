@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { Button } from "../../../components/ui/button";
+import { buttonVariants } from "../../../lib/button-styles";
+import { cn } from "../../../lib/utils";
 import { Card, CardContent } from "../../../components/ui/card";
 
 export default function CheckoutCancelPage() {
   return (
     <div className="mx-auto flex min-h-[60vh] max-w-3xl items-center px-4 py-12 sm:px-6 lg:px-8">
-      <Card className="w-full rounded-[36px]">
-        <CardContent className="space-y-5 p-10 text-center">
+      <Card className="w-full border-none bg-card/90 shadow-sm">
+        <CardContent className="space-y-5 py-10 text-center">
           <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">
             Checkout canceled
           </p>
@@ -15,12 +16,12 @@ export default function CheckoutCancelPage() {
             No charge was made. You can return to the cart or keep browsing the catalog.
           </p>
           <div className="flex justify-center gap-3">
-            <Button asChild>
-              <Link href="/cart">Back to cart</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/shop">Browse products</Link>
-            </Button>
+            <Link href="/cart" className={cn(buttonVariants({ variant: "default", size: "lg" }), "rounded-full")}>
+              Back to cart
+            </Link>
+            <Link href="/shop" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full")}>
+              Browse products
+            </Link>
           </div>
         </CardContent>
       </Card>

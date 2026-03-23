@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
-import { loadStripe } from "@stripe/stripe-js";
+import { Minus, Plus, ShieldCheck, ShoppingCart, TicketPercent, Trash2, Truck } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
+import { buttonVariants } from "../../lib/button-styles";
+import { cn } from "../../lib/utils";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
@@ -15,27 +16,24 @@ import {
   cartSelector,
   increaseQuantity,
   reduceQuantity,
-  removeFromCart
+  removeFromCart,
 } from "../../features/cart/cartSlice";
 
 export default function CartPage() {
   const { cart, totalPrice } = useSelector(cartSelector);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-  const stripePromise = loadStripe(publishableKey);
 
   const createCheckoutSession = async () => {
     setLoading(true);
 
     try {
-      const stripe = await stripePromise;
       const checkoutSession = await fetch("/api/checkout", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ cart })
+        body: JSON.stringify({ cart }),
       });
 
       const { session, message } = await checkoutSession.json();
@@ -44,11 +42,11 @@ export default function CartPage() {
         throw new Error(message || "Unable to create checkout session.");
       }
 
-      const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-      if (result?.error) {
-        throw result.error;
+      if (!session?.url) {
+        throw new Error("Checkout session URL is missing.");
       }
+
+      window.location.assign(session.url);
     } catch (error) {
       console.error(error);
       toast.error(error.message || "Unable to start checkout.");
@@ -63,14 +61,14 @@ export default function CartPage() {
         <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">
           Checkout
         </p>
-        <h1 className="text-4xl font-semibold tracking-tight">Your cart</h1>
+        <h1 className="text-5xl font-semibold tracking-tight">Your shopping bag</h1>
       </div>
 
-      <section className="grid gap-6 lg:grid-cols-[1fr,360px]">
-        <Card className="rounded-[36px]">
-          <CardContent className="space-y-4 p-6 sm:p-8">
+      <section className="grid gap-6 lg:grid-cols-[1fr_360px]">
+        <Card className="border-none bg-card/90 shadow-sm">
+          <CardContent className="space-y-4 py-6 sm:py-8">
             {cart.length < 1 ? (
-              <div className="flex min-h-72 flex-col items-center justify-center gap-4 rounded-[28px] border border-dashed border-border bg-muted/30 text-center">
+              <div className="flex min-h-72 flex-col items-center justify-center gap-4 rounded-[2rem] border border-dashed border-border bg-muted/30 text-center">
                 <ShoppingCart className="size-10 text-muted-foreground" />
                 <div className="space-y-2">
                   <h2 className="text-2xl font-semibold">Your cart is empty</h2>
@@ -78,15 +76,15 @@ export default function CartPage() {
                     Add a few items from the catalog and come back here.
                   </p>
                 </div>
-                <Button asChild>
-                  <Link href="/shop">Continue shopping</Link>
-                </Button>
+                <Link href="/shop" className={cn(buttonVariants({ variant: "default", size: "lg" }), "rounded-full")}>
+                  Continue shopping
+                </Link>
               </div>
             ) : (
               cart.map((item) => (
-                <div key={item.id} className="rounded-[28px] border border-border/70 bg-background p-4 sm:p-5">
+                <div key={item.id} className="rounded-[2rem] border border-border/70 bg-background p-4 shadow-sm sm:p-5">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                    <div className="flex size-28 items-center justify-center rounded-[24px] bg-muted/60 p-4">
+                    <div className="flex size-28 items-center justify-center rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.7),transparent),var(--color-muted)] p-4">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -98,7 +96,7 @@ export default function CartPage() {
                     <div className="min-w-0 flex-1 space-y-3">
                       <div className="space-y-1">
                         <h2 className="line-clamp-2 text-lg font-semibold">{item.title}</h2>
-                        <p className="text-sm text-muted-foreground">${item.price} each</p>
+                        <p className="text-sm text-muted-foreground">${item.price} each · Ready to ship</p>
                       </div>
                       <div className="flex flex-wrap items-center gap-3">
                         <div className="flex items-center rounded-full border border-border bg-background p-1">
@@ -122,6 +120,7 @@ export default function CartPage() {
                           type="button"
                           variant="ghost"
                           size="sm"
+                          className="rounded-full"
                           onClick={() => dispatch(removeFromCart({ product: item }))}
                         >
                           <Trash2 className="size-4" />
@@ -141,9 +140,9 @@ export default function CartPage() {
         </Card>
 
         <div className="space-y-6">
-          <Card className="rounded-[36px]">
+          <Card className="border-none bg-card/90 shadow-sm">
             <CardHeader>
-              <CardTitle>Order summary</CardTitle>
+              <CardTitle className="text-2xl">Order summary</CardTitle>
             </CardHeader>
             <CardContent className="space-y-5">
               <div className="space-y-3 text-sm">
@@ -165,22 +164,35 @@ export default function CartPage() {
                 <span>Total</span>
                 <span>${totalPrice.toFixed(2)}</span>
               </div>
-              <Button onClick={createCheckoutSession} disabled={loading || cart.length < 1} className="w-full" size="lg">
+              <div className="space-y-3 rounded-[1.5rem] bg-secondary/85 p-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-3">
+                  <Truck className="size-4 text-primary" />
+                  <span>Estimated delivery in 3-5 business days</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="size-4 text-primary" />
+                  <span>Encrypted payment via Stripe Checkout</span>
+                </div>
+              </div>
+              <Button onClick={createCheckoutSession} disabled={loading || cart.length < 1} className="w-full rounded-full" size="lg">
                 {loading ? "Processing..." : "Make purchase"}
               </Button>
-              <Button asChild variant="outline" className="w-full">
-                <Link href="/shop">Continue shopping</Link>
-              </Button>
+              <Link href="/shop" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full rounded-full")}>
+                Continue shopping
+              </Link>
             </CardContent>
           </Card>
 
-          <Card className="rounded-[36px] bg-secondary">
+          <Card className="border-none bg-card/90 shadow-sm">
             <CardHeader>
-              <CardTitle>Promo code</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-2xl">
+                <TicketPercent className="size-5 text-primary" />
+                Promo code
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Input placeholder="Enter code" />
-              <Button variant="secondary" className="w-full bg-background">
+              <Input className="h-10 rounded-full bg-background" placeholder="Enter code" />
+              <Button variant="outline" className="w-full rounded-full">
                 Apply code
               </Button>
             </CardContent>
