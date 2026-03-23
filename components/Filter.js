@@ -8,34 +8,58 @@ import { Separator } from "./ui/separator";
 const Filter = () => {
   return (
     <aside className="lg:sticky lg:top-32">
-      <Card className="rounded-[28px]">
-        <CardHeader>
-          <CardTitle>Refine the catalog</CardTitle>
+      <Card className="gap-5 rounded-[2rem] border-none bg-card/85 py-5 shadow-sm ring-1 ring-black/5">
+        <CardHeader className="px-5">
+          <CardTitle className="text-lg">Shop filters</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <Input placeholder="Search products" />
+        <CardContent className="space-y-6 px-5">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              Search
+            </p>
+            <Input className="h-10 rounded-full bg-background" placeholder="Search products" />
+          </div>
+
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-              Collections
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              Category
             </p>
             <div className="flex flex-wrap gap-2">
-              {["Outerwear", "Bags", "Home", "Audio", "Office", "Daily carry"].map((item) => (
-                <Badge key={item} variant="outline" className="rounded-full px-4 py-2">
+              {["All", "Fashion", "Electronics", "Jewelry", "Home"].map((item, index) => (
+                <Badge
+                  key={item}
+                  variant={index === 0 ? "default" : "outline"}
+                  className="rounded-full px-3 py-1.5"
+                >
                   {item}
                 </Badge>
               ))}
             </div>
           </div>
+
           <Separator />
+
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
               Price range
             </p>
             <div className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
-              <div className="rounded-2xl bg-muted px-4 py-3">$0 - $50</div>
-              <div className="rounded-2xl bg-muted px-4 py-3">$50 - $150</div>
-              <div className="rounded-2xl bg-muted px-4 py-3">$150 - $300</div>
-              <div className="rounded-2xl bg-muted px-4 py-3">$300+</div>
+              {["$0 - $50", "$50 - $150", "$150 - $300", "$300+"].map((item) => (
+                <div key={item} className="rounded-2xl bg-muted/80 px-4 py-3">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              Store promise
+            </p>
+            <div className="space-y-2 rounded-2xl bg-secondary p-4 text-sm text-muted-foreground">
+              <p>Curated catalog</p>
+              <p>Free shipping over $100</p>
+              <p>14-day returns</p>
             </div>
           </div>
         </CardContent>

@@ -1,10 +1,12 @@
 "use client";
 
+import { SlidersHorizontal } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 import Filter from "../../components/Filter";
 import ProductCard from "../../components/product-card";
 import { Badge } from "../../components/ui/badge";
+import { Button } from "../../components/ui/button";
 import { addToCart } from "../../features/cart/cartSlice";
 
 export default function ShopContent({ products }) {
@@ -16,22 +18,28 @@ export default function ShopContent({ products }) {
   };
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
-      <section className="space-y-4">
-        <Badge variant="outline" className="rounded-full px-4 py-2">
-          Live catalog
-        </Badge>
+    <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+      <section className="space-y-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h1 className="text-4xl font-semibold tracking-tight">Shop the full edit</h1>
+            <h1 className="text-5xl font-semibold tracking-tight">Shop all products</h1>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
-              Clean product grid, component-level styling, and zero Bootstrap layout dependencies.
+              Browse the full catalog with filters on the left and product cards on the right.
             </p>
           </div>
-          <p className="text-sm text-muted-foreground">{products.length} items available</p>
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="rounded-[var(--radius)] px-3 py-1.5">
+              {products.length} items
+            </Badge>
+            <Button variant="outline" size="lg" className="rounded-[var(--radius)]">
+              <SlidersHorizontal className="size-4" />
+              Sort & filter
+            </Button>
+          </div>
         </div>
       </section>
-      <section className="grid gap-6 lg:grid-cols-[280px,1fr]">
+
+      <section className="grid items-start gap-6 lg:grid-cols-[280px_1fr]">
         <Filter />
         <main className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
