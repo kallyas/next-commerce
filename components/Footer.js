@@ -1,128 +1,50 @@
-import Image from "next/image";
-import Link from "next/link";
-
 const Footer = () => {
   return (
-    <footer className="section-footer border-top">
-      <div className="container">
-        <section className="footer-top padding-y">
-          <div className="row">
-            <aside className="col-md col-6">
-              <h6 className="title">Brands</h6>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">Adidas</a>
-                </li>
-                <li>
-                  <a href="#">Puma</a>
-                </li>
-                <li>
-                  <a href="#">Reebok</a>
-                </li>
-                <li>
-                  <a href="#">Nike</a>
-                </li>
-              </ul>
-            </aside>
-            <aside className="col-md col-6">
-              <h6 className="title">Company</h6>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">About us</a>
-                </li>
-                <li>
-                  <a href="#">Career</a>
-                </li>
-                <li>
-                  <a href="#">Find a store</a>
-                </li>
-                <li>
-                  <a href="#">Rules and terms</a>
-                </li>
-                <li>
-                  <a href="#">Sitemap</a>
-                </li>
-              </ul>
-            </aside>
-            <aside className="col-md col-6">
-              <h6 className="title">Help</h6>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">Contact us</a>
-                </li>
-                <li>
-                  <a href="#">Money refund</a>
-                </li>
-                <li>
-                  <a href="#">Order status</a>
-                </li>
-                <li>
-                  <a href="#">Shipping info</a>
-                </li>
-                <li>
-                  <a href="#">Open dispute</a>
-                </li>
-              </ul>
-            </aside>
-            <aside className="col-md col-6">
-              <h6 className="title">Account</h6>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#"> User Login </a>
-                </li>
-                <li>
-                  <a href="#"> User register </a>
-                </li>
-                <li>
-                  <a href="#"> Account Setting </a>
-                </li>
-                <li>
-                  <a href="#"> My Orders </a>
-                </li>
-              </ul>
-            </aside>
-            <aside className="col-md">
-              <h6 className="title">Social</h6>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#">
-                    <i className="fab fa-facebook"></i> Facebook
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-twitter"></i> Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-instagram"></i> Instagram
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-youtube"></i> Youtube
-                  </a>
-                </li>
-              </ul>
-            </aside>
-          </div>
-        </section>
-        <section className="footer-bottom border-top row">
-          <div className="col-md-2">
-            <p className="text-muted"> &copy; 2019 Company name </p>
-          </div>
-          <div className="col-md-8 text-md-center">
-            <span className="px-2">info@pixsellz.io</span>
-            <span className="px-2">+879-332-9375</span>
-            <span className="px-2">Street name 123, Avanue abc</span>
-          </div>
-          <div className="col-md-2 text-md-right text-muted">
-            <i className="fab fa-lg fa-cc-visa"></i>
-            <i className="fab fa-lg fa-cc-paypal"></i>
-            <i className="fab fa-lg fa-cc-mastercard"></i>
-          </div>
-        </section>
+    <footer className="border-t border-border/70 bg-card/40">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.4fr,1fr,1fr,1fr] lg:px-8">
+        <div className="space-y-4">
+          <p className="text-sm font-medium uppercase tracking-[0.24em] text-muted-foreground">
+            Next Commerce
+          </p>
+          <h2 className="max-w-sm text-2xl font-semibold tracking-tight">
+            Tailored storefront rebuilt with Tailwind CSS v4 and shadcn-style primitives.
+          </h2>
+          <p className="max-w-md text-sm leading-6 text-muted-foreground">
+            Modern layout, lighter CSS, and a component system that matches the App Router setup.
+          </p>
+        </div>
+        <div>
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Shop
+          </h3>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li>Clothing</li>
+            <li>Electronics</li>
+            <li>Jewelry</li>
+            <li>Bags</li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Support
+          </h3>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li>Shipping</li>
+            <li>Returns</li>
+            <li>Checkout</li>
+            <li>Store policy</li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Contact
+          </h3>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li>info@nextcommerce.dev</li>
+            <li>+1 555 012 3344</li>
+            <li>Kampala to Brooklyn shipping</li>
+          </ul>
+        </div>
       </div>
     </footer>
   );

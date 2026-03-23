@@ -1,6 +1,14 @@
 module.exports = {
   reactStrictMode: true,
+  turbopack: {
+    root: __dirname,
+  },
   images: {
-    domains: ['fakestoreapi.com'],
-  }
-}
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fakestoreapi.com",
+      },
+    ],
+  },
+};

@@ -3,9 +3,9 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
-    <div id="wrapper">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      {children}
+      <main>{children}</main>
       <Footer />
     </div>
   );

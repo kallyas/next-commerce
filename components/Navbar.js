@@ -1,91 +1,68 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { cartSelector } from "../features/cart/cartSlice";
+import { Search, ShoppingBag } from "lucide-react";
 import { useSelector } from "react-redux";
+import { cartSelector } from "../features/cart/cartSlice";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 const Navbar = () => {
   const { totalItems } = useSelector(cartSelector);
+
   return (
-    <>
-      <header className="section-header">
-        <section className="header-main border-bottom">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-lg-2 col-4">
-                <Link href="/">
-                  <a className="brand-wrap">E-Commerce</a>
-                </Link>
-              </div>
-              <div className="col-lg-6 col-sm-12">
-                <form action="#" className="search">
-                  <div className="input-group w-100">
-                    <input type="text" className="form-control" placeholder="Search" />
-                    <div className="input-group-append">
-                      <button className="btn btn-primary" type="submit">
-                        <i className="fa fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div className="col-lg-4 col-sm-6 col-12">
-                <div className="widgets-wrap float-md-right">
-                  <div className="widget-header  mr-3">
-                   <Link href="/cart">
-                   <a className="icon icon-sm rounded-circle border">
-                      <i className="fa fa-shopping-cart"></i>
-                    </a>
-                   </Link>
-                    <span className="badge badge-pill badge-danger notify">{totalItems}</span>
-                  </div>
-                  <div className="widget-header icontext">
-                    <a href="#" className="icon icon-sm rounded-circle border">
-                      <i className="fa fa-user"></i>
-                    </a>
-                    <div className="text">
-                      <span className="text-muted">Welcome!</span>
-                      <div>
-                        <a href="#">Sign in</a> |<a href="#"> Register</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex size-10 items-center justify-center rounded-2xl bg-foreground text-background">
+              <ShoppingBag className="size-5" />
+            </div>
+            <div>
+              <p className="text-sm font-medium uppercase tracking-[0.26em] text-muted-foreground">
+                Next Commerce
+              </p>
+              <p className="text-lg font-semibold tracking-tight">Curated essentials</p>
+            </div>
+          </Link>
+          <div className="hidden flex-1 items-center justify-center lg:flex">
+            <div className="relative w-full max-w-xl">
+              <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Input className="pl-10" placeholder="Search for jackets, electronics, bags..." />
             </div>
           </div>
-        </section>
-      </header>
-      <nav className="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#main_nav"
-            aria-controls="main_nav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="main_nav">
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <Link href="/">
-                  <a className="nav-link">Home</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/shop">
-                  <a className="nav-link">Shop</a>
-                </Link>
-              </li>
-            </ul>
+          <div className="flex items-center gap-3">
+            <Badge variant="outline" className="hidden rounded-full px-4 py-2 md:inline-flex">
+              Free shipping over $100
+            </Badge>
+            <Button asChild variant="outline" className="relative">
+              <Link href="/cart">
+                <ShoppingBag className="size-4" />
+                Cart
+                <span className="ml-1 inline-flex size-6 items-center justify-center rounded-full bg-foreground text-xs text-background">
+                  {totalItems}
+                </span>
+              </Link>
+            </Button>
           </div>
         </div>
-      </nav>
-    </>
+        <nav className="flex items-center gap-3 overflow-auto text-sm">
+          <Link href="/" className="rounded-full bg-secondary px-4 py-2 font-medium text-secondary-foreground">
+            Home
+          </Link>
+          <Link
+            href="/shop"
+            className="rounded-full px-4 py-2 font-medium text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+          >
+            Shop
+          </Link>
+          <span className="rounded-full px-4 py-2 text-muted-foreground">New arrivals</span>
+          <span className="rounded-full px-4 py-2 text-muted-foreground">Accessories</span>
+          <span className="rounded-full px-4 py-2 text-muted-foreground">Seasonal edits</span>
+        </nav>
+      </div>
+    </header>
   );
 };
 
